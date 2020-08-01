@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class JpaPostgreDemoController {
 	@GetMapping("/postgres")
 	public String postgresDemoStart () {
-		return "Postgres demo start...";
+		return "Jpa Postgres demo start...";
 	}
 
 }

@@ -34,6 +34,9 @@ public class Employee implements Serializable {
 		this.lastName = lastName;
 	}
 	
+	public Employee() {
+    }
+	
 	public Employee(String first_name, String last_name) {
 		this.firstName = first_name;
 		this.lastName = last_name;
