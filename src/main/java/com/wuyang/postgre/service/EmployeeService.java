@@ -18,12 +18,12 @@ public class EmployeeService {
 	
 	public String bulkcreate() {
 		// save a single User
-		((EmployeeRepository)employeeRepository).save(new Employee("Rajesh", "Bhojwani"));
+		((EmployeeRepository)employeeRepository).save(new Employee("Peter", "Collins"));
 		// save a list of Customers
-		employeeRepository.saveAll(Arrays.asList(new Employee("Salim", "Khan")
-		                       , new Employee("Rajesh", "Parihar")
-		                       , new Employee("Rahul", "Dravid")
-		                       , new Employee("Dharmendra", "Bhojwani")));
+		employeeRepository.saveAll(Arrays.asList(new Employee("John", "Thomas")
+		                       , new Employee("Larry", "King")
+		                       , new Employee("Hunter", "Brown")
+		                       , new Employee("Eric", "Madison")));
 		return "Employees are created";
 	}
 	
