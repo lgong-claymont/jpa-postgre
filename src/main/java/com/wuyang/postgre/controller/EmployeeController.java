@@ -1,24 +1,19 @@
 package com.wuyang.postgre.controller;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.sun.el.stream.Optional;
 import com.wuyang.postgre.entity.Employee;
-import com.wuyang.postgre.repository.EmployeeRepository;
 import com.wuyang.postgre.service.EmployeeService;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/")
 public class EmployeeController {
@@ -34,7 +29,7 @@ public class EmployeeController {
 		@RequestMapping("totalEmployees")
 		public Long getTotalEmployees() {
 			return Long.valueOf(employeeService.showEmpolyees().size());
-		}
+		}		
 		
 		@RequestMapping("showEmployees")
 		public List<Employee> showEmpolyees(Model model) {
