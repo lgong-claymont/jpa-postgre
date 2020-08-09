@@ -7,6 +7,7 @@ import com.wuyang.postgre.entity.Employee;
 import com.wuyang.postgre.service.EmployeeService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -34,6 +35,17 @@ public class EmployeeController {
 		@RequestMapping("showEmployees")
 		public List<Employee> showEmpolyees(Model model) {
 			return employeeService.showEmpolyees();
+		}
+		
+		@RequestMapping("getEmployeeById/{id}") 
+		public Employee getEmployeeById(@PathVariable int id) {
+			List<Employee> listOfEmployee = employeeService.showEmpolyees();
+			
+			return listOfEmployee.stream()
+					.filter(e -> e.getId() == id)
+					.limit(20)
+					.collect(Collectors.toList())
+					.get(0);
 		}
 		
 		@RequestMapping("showEmployeeById")

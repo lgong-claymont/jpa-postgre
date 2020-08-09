@@ -1,18 +1,17 @@
 package com.wuyang.postgre.controller;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wuyang.postgre.entity.Employee;
-import com.wuyang.postgre.repository.EmployeeRepository;
 import com.wuyang.postgre.service.EmployeeService;
 
 @RestController
@@ -23,7 +22,7 @@ public class StreamsPostgresController {
 	
 	@RequestMapping("getEmployees") 
 	public List<Employee> getEmployees() {
-		return employeeService.showEmpolyees();
+		return Stream.of(employeeService.showEmpolyees()).limit(2).collect(Collectors.toList()).get(0);
 	}
 	
 	@GetMapping("/creation")
